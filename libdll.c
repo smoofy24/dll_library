@@ -67,7 +67,6 @@ int get_dll_len(dll_t *dll) {
  */
 int remove_data_from_dll(dll_t *dll, void *data) {
     // Can't remove data from empty list
-    printf("-1-\n");
     if (is_dll_empty(dll) == 0) return 1;
 
     // Find the data
@@ -77,8 +76,6 @@ int remove_data_from_dll(dll_t *dll, void *data) {
     }
     
     if (current_node->data == data) {
-        // Remove data
-        // free(current_node->data);
         // Change the reference
         if ((current_node->left == NULL) && (current_node->right != NULL)) {
             current_node->right->left = NULL;
@@ -105,5 +102,16 @@ int remove_data_from_dll(dll_t *dll, void *data) {
  * Drain the DLL
  */
 void drain_dll(dll_t *dll) {
+    // Can't remove data from empty list
+    if (is_dll_empty(dll) == 0) return;
+    // Iterate through the list
+    dll_node_t * current_node = dll->head;
+    dll_node_t * prev_node;
+    while (current_node != NULL){
+        prev_node = current_node;
+        current_node = current_node->right;
+        remove_data_from_dll(dll, prev_node->data);
+    }
 
+    return;
 }
