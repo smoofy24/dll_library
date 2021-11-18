@@ -3,11 +3,12 @@
 #include <memory.h>
 #include "libdll.h"
 
+
 /*
  * Function to create a new linked list
  */
 dll_t * get_new_dll() {
-    dll_t * new_dll = malloc(sizeof(dll_t));
+    dll_t * new_dll = calloc(1, sizeof(dll_t));
     new_dll->head = NULL;
     return new_dll;
 }
@@ -25,7 +26,7 @@ int is_dll_empty(dll_t *dll) {
  */
 int add_data_to_dll(dll_t *dll, void *appn_data) {
     
-    dll_node_t * new_node = malloc(sizeof(dll_node_t));
+    dll_node_t * new_node = calloc(1, sizeof(dll_node_t));
     if (new_node == NULL) return 1;
     new_node->data = appn_data;
     new_node->right = NULL;

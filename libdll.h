@@ -38,3 +38,15 @@ void drain_dll(dll_t *dll);
  * Get DLL length
  */
 int get_dll_len(dll_t *dll);
+
+/*
+ * Macro to iterate through the list
+ */
+#define ITERATE_LIST_BEGIN(list_ptr, node_ptr)      \
+{                                                   \
+    dll_node_t * _node_ptr = NULL;                  \
+    node_ptr = list_ptr->head;                      \
+    for(; node_ptr != NULL; node_ptr =_node_ptr){   \
+        _node_ptr = node_ptr->right;                
+
+#define ITERATE_LIST_END }}        
