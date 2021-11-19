@@ -1,2 +1,2 @@
-# dll_library
-Own DLL library
+# ds_library
+Own data structures library
