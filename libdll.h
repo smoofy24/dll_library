@@ -1,4 +1,7 @@
 
+#ifndef lib_dll
+#define lib_dll
+
 typedef struct dll_node_{
     void *data;
     struct dll_node_ *left;
@@ -50,3 +53,5 @@ int get_dll_len(dll_t *dll);
         _node_ptr = node_ptr->right;                
 
 #define ITERATE_LIST_END }}        
+
+#endif
